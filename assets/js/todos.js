@@ -3,7 +3,7 @@ $("ul").on("click", "li", function(){
 	$(this).toggleClass("completed");
 });
 
-//Click on X to delete Todo
+//Click on trash icon to delete Todo
 $("ul").on("click", "span", function(event){
 	$(this).parent().fadeOut(500,function(){
 		$(this).remove();
@@ -11,9 +11,10 @@ $("ul").on("click", "span", function(event){
 	event.stopPropagation();
 });
 
+//Adding a new todo
 $("input[type='text']").keypress(function(event){
 	if(event.which === 13){
-		//grabbing new todo text from input
+		//extracting new todo text from input
 		var todoText = $(this).val();
 		$(this).val("");
 		//create a new li and add to ul
@@ -21,6 +22,7 @@ $("input[type='text']").keypress(function(event){
 	}
 });
 
+//Clicking on "+" icon to toggle the inpit field
 $("#toggle-form").click(function(){
 	$("input[type='text']").fadeToggle();
 });
